@@ -11,7 +11,7 @@ const handleRowClick = (row) => {
 };
 
   useEffect(() => {
-    fetch("https://facecard.bsite.net/api/customers")
+    fetch("https://facecardapi.azurewebsites.net/api/customers")
       .then((res) => res.json())
       .then((data) => {
         setData(data.data);

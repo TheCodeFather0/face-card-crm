@@ -22,7 +22,7 @@ const ClientDashboard = () => {
   console.log(client)
 
   useEffect(() => {
-    fetch(`https://facecard.bsite.net/api/customers/${id}`)
+    fetch(`https://facecardapi.azurewebsites.net/api/customers/${id}`)
       .then(res => res.json())
       .then(data => {
         setClient(data.data);
