@@ -1,17 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
-import 'react-datepicker/dist/react-datepicker.css';
-import DateRangePicker from '../date-range-picker';
-import DashBoardStatsCards from '../dashboard-stats-cards';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import "react-datepicker/dist/react-datepicker.css";
+import DateRangePicker from "../date-range-picker";
+import DashBoardStatsCards from "../dashboard-stats-cards";
 
 const DashboardPanel = () => {
-  
-
   return (
-    <div className='container mx-auto flex flex-col gap-4 py-2 px-40'>
+    <div className="w-full max-w-screen-xl mx-auto flex flex-col gap-6 py-4 px-4 sm:px-6 md:px-10">
       <DateRangePicker />
       <DashBoardStatsCards />
-      
     </div>
   );
 };

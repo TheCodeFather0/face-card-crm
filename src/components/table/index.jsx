@@ -3,7 +3,7 @@ import { useState } from "react";
 export const FilterableTable = ({
   data,
   columns,
-  title = 'Cədvəl',
+  title = "Cədvəl",
   onRowClick,
   extraFilter,
   extraButton,
@@ -16,8 +16,8 @@ export const FilterableTable = ({
 
   const filteredData = data.filter((item) =>
     columns.every((col) => {
-      const filterValue = filters[col.accessor] || '';
-      return filterValue === ''
+      const filterValue = filters[col.accessor] || "";
+      return filterValue === ""
         ? true
         : item[col.accessor]
             ?.toString()
@@ -27,13 +27,13 @@ export const FilterableTable = ({
   );
 
   return (
-    <div className="container mx-auto flex flex-col gap-4 py-2 px-40 mt-10">
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-3xl font-bold">{title}</h1>
-        <div className="flex gap-2 items-center">
+    <div className="w-full max-w-screen-xl mx-auto flex flex-col gap-6 py-4 px-4 sm:px-6 md:px-10">
+      <div className="flex justify-between items-center mb-4 mt-10">
+        <h2 className="text-2xl sm:text-3xl font-bold">{title}</h2>
+        {/* <div className="flex gap-2 items-center">
           {extraFilter && extraFilter({ filters, handleFilterChange })}
           {extraButton && extraButton}
-        </div>
+        </div> */}
       </div>
 
       <div className="overflow-x-auto">
@@ -52,7 +52,7 @@ export const FilterableTable = ({
                   <input
                     type="text"
                     className="w-full bg-gray-100 rounded px-2 py-1"
-                    value={filters[col.accessor] || ''}
+                    value={filters[col.accessor] || ""}
                     onChange={(e) =>
                       handleFilterChange(col.accessor, e.target.value)
                     }
@@ -69,9 +69,9 @@ export const FilterableTable = ({
                 onClick={() => onRowClick && onRowClick(row)}
               >
                 {columns.map((col) => (
-                 <td key={col.accessor} className="px-3 py-2">
-                 {col.render ? col.render(row) : row[col.accessor]}
-               </td>
+                  <td key={col.accessor} className="px-3 py-2">
+                    {col.render ? col.render(row) : row[col.accessor]}
+                  </td>
                 ))}
               </tr>
             ))}
